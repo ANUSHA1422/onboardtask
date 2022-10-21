@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using onboardtask.Utilities;
 using OpenQA.Selenium;
 
 namespace onboardtask.Pages
 {
-    public class SignInPage
+    public class SignInPage:CommonDriver
     {
         public void SignInSteps(IWebDriver driver)
         {

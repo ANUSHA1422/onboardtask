@@ -21,6 +21,7 @@ namespace onboardtask.Utilities
             SignInPage signinPageObj = new SignInPage();
             signinPageObj.SignInSteps(driver);
 
+            LanguagePage languagePageObj = new LanguagePage();
         }
     }
 }
