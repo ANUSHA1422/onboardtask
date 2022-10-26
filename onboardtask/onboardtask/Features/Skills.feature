@@ -12,12 +12,12 @@ Scenario:(1) Add skill in the profile page
 @2editskill
 Scenario:(2) Edit skill in the profile page
 Given I logged into the local host portal successfully
-When I edit'<Skill>'in the existing skill record
-Then The record should have the edited '<Skill>'  .
+When I edit'<Skill>','<Skill level>',in the existing skill record
+Then The record should have the edited '<Skill>' ,'<Skill level>' .
 
 Examples: 
-|Skill   |  
-| paint  |  
+| Skill | Skill level |
+| PAINT | Expert      |
 
 @3deleteskill
 Scenario:(3) Delete skill in the profile page

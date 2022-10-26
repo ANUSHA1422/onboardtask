@@ -108,8 +108,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("(2) Edit skill in the profile page")]
         [NUnit.Framework.CategoryAttribute("2editskill")]
-        [NUnit.Framework.TestCaseAttribute("paint", null)]
-        public void _2EditSkillInTheProfilePage(string skill, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("PAINT", "Expert", null)]
+        public void _2EditSkillInTheProfilePage(string skill, string skillLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "2editskill"};
@@ -120,6 +120,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
+            argumentsOfScenario.Add("Skill level", skillLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(2) Edit skill in the profile page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
 this.ScenarioInitialize(scenarioInfo);
@@ -135,10 +136,10 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I logged into the local host portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 15
-testRunner.When(string.Format("I edit\'{0}\'in the existing skill record", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I edit\'{0}\',\'{1}\',in the existing skill record", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
-testRunner.Then(string.Format("The record should have the edited \'{0}\'  .", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The record should have the edited \'{0}\' ,\'{1}\' .", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -108,8 +108,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("(2) Edit langauge in the profile page")]
         [NUnit.Framework.CategoryAttribute("2editlangauge")]
-        [NUnit.Framework.TestCaseAttribute("english", null)]
-        public void _2EditLangaugeInTheProfilePage(string langauge, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("english", "Fluent", null)]
+        public void _2EditLangaugeInTheProfilePage(string langauge, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "2editlangauge"};
@@ -120,6 +120,7 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Langauge", langauge);
+            argumentsOfScenario.Add("Language level", languageLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("(2) Edit langauge in the profile page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
 this.ScenarioInitialize(scenarioInfo);
@@ -135,10 +136,10 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("I logged into the local host portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
-testRunner.When("I edit\'<Language>\'in the existing langauge record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I edit\'<Language>\',\'{0}\'in the existing langauge record", languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
-testRunner.Then("The record should have the edited \'<Language>\' .", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The record should have the edited \'<Language>\',\'{0}\' .", languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

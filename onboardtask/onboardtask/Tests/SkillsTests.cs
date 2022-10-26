@@ -18,12 +18,20 @@ namespace onboardtask.Tests
             skillPageObj.AddSkill();
         }
         [Test, Order(2)]
-        public void EditLanguageTest()
+        public void EditSkillTest()
         {
             SkillsPage skillPageObj = new SkillsPage();
             skillPageObj.EditSkill();
         }
-        [Test, Order(3)]
+
+        [Test,Order(3)]
+        public void EditSkillLevelTest()
+        {
+            SkillsPage skillPageObj = new SkillsPage();
+            skillPageObj.EditSkillLevel();
+
+        }
+        [Test, Order(4)]
         public void DeleteLangaugeTest()
         {
             SkillsPage skillPageObj = new SkillsPage();

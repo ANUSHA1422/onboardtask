@@ -8,6 +8,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using onboardtask.Utilities;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace onboardtask.Tests
 {
@@ -29,7 +30,15 @@ namespace onboardtask.Tests
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.EditLanguage();
         }
+
         [Test, Order(3)]
+        public void EditLanguageLevelTest()
+        {
+            LanguagePage languagePageObj = new LanguagePage();
+            languagePageObj.EditLangaugeLevel();
+
+        }
+        [Test, Order(4)]
         public void DeleteLangaugeTest()
         {
             LanguagePage languagePageObj = new LanguagePage();

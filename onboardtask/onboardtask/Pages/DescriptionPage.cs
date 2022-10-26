@@ -13,10 +13,10 @@ namespace onboardtask.Pages
     {
         public void AddDescription()
         {
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//i[@class='outline write icon']", 3);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//i[@class='outline write icon']", 9);
             IWebElement WriteDescription = driver.FindElement(By.XPath("//i[@class='outline write icon']"));
             WriteDescription.Click();
-            IWebElement Description = driver.FindElement(By.XPath("//textarea[@name='value']"));
+            IWebElement Description = driver.FindElement(By.XPath("//div/section[2]//div[3]/div/div/form//div[2]/div[1]/textarea"));
             Description.Click();
             Description.Clear();
             Thread.Sleep(1000);

@@ -23,19 +23,24 @@ namespace onboardtask.StepDefinitions
             Assert.That(newlanguage == "english", "actual language and expected language do not  match");
         }
 
-        [When(@"I edit'([^']*)'in the existing langauge record")]
-        public void WhenIEditinTheExistingLangaugeRecord(string language)
+        [When(@"I edit'([^']*)','([^']*)'in the existing langauge record")]
+        public void WhenIEditInTheExistingLangaugeRecord(string language, string fluent)
         {
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.EditLanguage();
+            languagePageObj.EditLangaugeLevel();
         }
-        [Then(@"The record should have the edited '([^']*)' \.")]
-        public void ThenTheRecordShouldHaveTheEdited_(string language)
+
+        [Then(@"The record should have the edited '([^']*)','([^']*)' \.")]
+        public void ThenTheRecordShouldHaveTheEdited_(string language, string fluent)
         {
             LanguagePage languagePageObj = new LanguagePage();
-            string newEditedlanguage = languagePageObj.GetEditedLanguage(); 
+            string newEditedlanguage = languagePageObj.GetEditedLanguage();
+            string newEditedLangaugelevel = languagePageObj.GetEditedLangauagelevel();
             Assert.That(newEditedlanguage == "telugu", "actual language and expected language do not  match");
+            Assert.That(newEditedLangaugelevel == "Native/Bilingual", "actual level and expected level do Not match");
         }
+
 
         [When(@"I delete language from an exisiting langauge record")]
         public void WhenIDeleteLanguageFromAnExisitingLangaugeRecord()

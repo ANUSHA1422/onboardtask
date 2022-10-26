@@ -10,12 +10,12 @@ Scenario:(1) Add language in the profile page
 @2editlangauge
 Scenario:(2) Edit langauge in the profile page
 Given I logged into the local host portal successfully
-When I edit'<Language>'in the existing langauge record
-Then The record should have the edited '<Language>' .
+When I edit'<Language>','<Language level>'in the existing langauge record
+Then The record should have the edited '<Language>','<Language level>' .
 
 Examples: 
-| Langauge |
-| english  | 
+| Langauge | Language level |
+| english  | Fluent         |
 
 @3deletelangauge
 Scenario: (3) Delete langauge in the profile page

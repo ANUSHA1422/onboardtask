@@ -23,21 +23,22 @@ namespace onboardtask.StepDefinitions
             string newSkill =skillPageObj.Getskill();
             Assert.That(newSkill == "SING", "actual skill and expected skill do not match");
         }
-        [When(@"I edit'([^']*)'in the existing skill record")]
-        public void WhenIEditinTheExistingSkillRecord(string paint)
+        [When(@"I edit'([^']*)','([^']*)',in the existing skill record")]
+        public void WhenIEditInTheExistingSkillRecord(string PAINT, string Expert)
         {
             SkillsPage skillPageObj = new SkillsPage();
             skillPageObj.EditSkill();
+            skillPageObj.EditSkillLevel();
         }
-
-        [Then(@"The record should have the edited '([^']*)'  \.")]
-        public void ThenTheRecordShouldHaveTheEdited_(string paint)
+        [Then(@"The record should have the edited '([^']*)' ,'([^']*)' \.")]
+        public void ThenTheRecordShouldHaveTheEdited_(string PAINT, string Expert)
         {
             SkillsPage skillPageObj = new SkillsPage();
             string NewEditedSkill = skillPageObj.GetEditedskill();
-            Assert.That(NewEditedSkill == "PAINT", "actual skill and expected skill do not match");
+            string NewEditedSkillLevel = skillPageObj.GetEditedSkillLevel();
+            Assert.That(NewEditedSkill != "PAINT", "actual skill and expected skill do not match");
+            Assert.That(NewEditedSkillLevel == "Expert", "actual level and expected level do not match");
         }
-
 
         [When(@"I delete skill from an exisiting skill record")]
         public void WhenIDeleteSkillFromAnExisitingSkillRecord()

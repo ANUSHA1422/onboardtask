@@ -15,7 +15,7 @@ namespace onboardtask.Pages
         public void AddLanguage()
         {
 
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//a[@data-tab='first']", 3);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//a[@data-tab='first']", 9);
             IWebElement Language = driver.FindElement(By.XPath("//a[@data-tab='first']"));
             Language.Click();
             IWebElement AddNew = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
@@ -39,7 +39,7 @@ namespace onboardtask.Pages
 
             IWebElement AddButton = driver.FindElement(By.XPath("//input[@value='Add']"));
             AddButton.Click();
-
+            Thread.Sleep(1000);
             IWebElement newlanguage = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             Assert.That(newlanguage.Text == "english", "actual language and expected language do not  match");
         }
@@ -60,28 +60,52 @@ namespace onboardtask.Pages
             //Thread.Sleep(2000);
             newlanguage.SendKeys("telugu");
 
-            IWebElement ADDlevel = driver.FindElement(By.XPath("//option[@value='Fluent']"));
-            ADDlevel.Click();
+            //IWebElement ADDlevel = driver.FindElement(By.XPath("//option[@value='Fluent']"));
+            //ADDlevel.Click();
+            //var languageLevel = driver.FindElement(By.Name("level"));
+            //var selectElement = new SelectElement(languageLevel);
+            //selectElement.SelectByValue("Native/Bilingual");
+
+            //IWebElement LevelNative = driver.FindElement(By.XPath("//option[@value='Native/Bilingual']"));
+            //LevelNative.Click();
+            ////Thread.Sleep(2000);
+            //IWebElement UpdateButton = driver.FindElement(By.XPath("//input[@type='button']"));
+            //UpdateButton.Click();
+            //Thread.Sleep(2000);
+
+            IWebElement newEditedlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            //Assert.That(newEditedlanguage.Text == "telugu", "actual language and expected language do not  match");
+
+            //IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+            //Assert.That(newEditedlanguageLevel.Text == "native/bilingual", "actual level and expected level do NotFiniteNumberException match");
+
+        }
+        public void EditLangaugeLevel()
+        {
+            //IWebElement ADDlevel = driver.FindElement(By.XPath("//option[@value='Fluent']"));
+            //ADDlevel.Click();
             var languageLevel = driver.FindElement(By.Name("level"));
             var selectElement = new SelectElement(languageLevel);
             selectElement.SelectByValue("Native/Bilingual");
 
-            //IWebElement LevelNative = driver.FindElement(By.XPath("//option[@value='Native/Bilingual']"));
-            //LevelNative.Click();
-            //Thread.Sleep(2000);
             IWebElement UpdateButton = driver.FindElement(By.XPath("//input[@type='button']"));
             UpdateButton.Click();
             Thread.Sleep(2000);
 
-            IWebElement newEditedlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
-            //Assert.That(newEditedlanguage.Text == "telugu", "actual language and expected language do not  match");
+            IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+            Assert.That(newEditedlanguageLevel.Text == "Native/Bilingual", "actual level and expected level do NotFiniteNumberException match");
+
         }
         public string GetEditedLanguage()
         {
             IWebElement newlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             return newlanguage.Text;
         }
-
+        public string GetEditedLangauagelevel()
+        {
+            IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+            return newEditedlanguageLevel.Text;
+        }
         public void DeleteLanguage()
         {
             WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 3);                    
