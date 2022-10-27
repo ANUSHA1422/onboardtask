@@ -20,7 +20,7 @@ namespace onboardtask.Pages
             Language.Click();
             IWebElement AddNew = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
             AddNew.Click();
-            Thread.Sleep(2000);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 2);
 
             IWebElement AddLanguage = driver.FindElement(By.XPath("//input[@placeholder='Add Language']"));
             AddLanguage.Click();
@@ -33,13 +33,11 @@ namespace onboardtask.Pages
             var selectElement = new SelectElement(languageLevel);
             selectElement.SelectByValue("Fluent");
 
-            //IWebElement LevelFluent = driver.FindElement(By.XPath("//option[@value='Fluent']"));
-            //LevelFluent.Click();
-            //Thread.Sleep(2000);
+           
 
             IWebElement AddButton = driver.FindElement(By.XPath("//input[@value='Add']"));
             AddButton.Click();
-            Thread.Sleep(1000);
+           
             IWebElement newlanguage = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             Assert.That(newlanguage.Text == "english", "actual language and expected language do not  match");
         }
@@ -57,40 +55,24 @@ namespace onboardtask.Pages
             UpdateLanguage.Click();
             IWebElement newlanguage = driver.FindElement(By.XPath("//input[@placeholder='Add Language']"));
             newlanguage.Clear();
-            //Thread.Sleep(2000);
+           
             newlanguage.SendKeys("telugu");
 
-            //IWebElement ADDlevel = driver.FindElement(By.XPath("//option[@value='Fluent']"));
-            //ADDlevel.Click();
-            //var languageLevel = driver.FindElement(By.Name("level"));
-            //var selectElement = new SelectElement(languageLevel);
-            //selectElement.SelectByValue("Native/Bilingual");
-
-            //IWebElement LevelNative = driver.FindElement(By.XPath("//option[@value='Native/Bilingual']"));
-            //LevelNative.Click();
-            ////Thread.Sleep(2000);
-            //IWebElement UpdateButton = driver.FindElement(By.XPath("//input[@type='button']"));
-            //UpdateButton.Click();
-            //Thread.Sleep(2000);
 
             IWebElement newEditedlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
-            //Assert.That(newEditedlanguage.Text == "telugu", "actual language and expected language do not  match");
-
-            //IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
-            //Assert.That(newEditedlanguageLevel.Text == "native/bilingual", "actual level and expected level do NotFiniteNumberException match");
+            Assert.That(newEditedlanguage.Text == "telugu", "actual language and expected language do not  match");
 
         }
         public void EditLangaugeLevel()
         {
-            //IWebElement ADDlevel = driver.FindElement(By.XPath("//option[@value='Fluent']"));
-            //ADDlevel.Click();
+            
             var languageLevel = driver.FindElement(By.Name("level"));
             var selectElement = new SelectElement(languageLevel);
             selectElement.SelectByValue("Native/Bilingual");
 
             IWebElement UpdateButton = driver.FindElement(By.XPath("//input[@type='button']"));
             UpdateButton.Click();
-            Thread.Sleep(2000);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//input[@type='button']", 2);
 
             IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
             Assert.That(newEditedlanguageLevel.Text == "Native/Bilingual", "actual level and expected level do NotFiniteNumberException match");

@@ -24,7 +24,7 @@ namespace onboardtask.StepDefinitions
         }
 
         [When(@"I edit'([^']*)','([^']*)'in the existing langauge record")]
-        public void WhenIEditInTheExistingLangaugeRecord(string language, string fluent)
+        public void WhenIEditInTheExistingLangaugeRecord(string language, string Languagelevel)
         {
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.EditLanguage();
@@ -32,7 +32,7 @@ namespace onboardtask.StepDefinitions
         }
 
         [Then(@"The record should have the edited '([^']*)','([^']*)' \.")]
-        public void ThenTheRecordShouldHaveTheEdited_(string language, string fluent)
+        public void ThenTheRecordShouldHaveTheEdited_(string language, string Languagelevel)
         {
             LanguagePage languagePageObj = new LanguagePage();
             string newEditedlanguage = languagePageObj.GetEditedLanguage();

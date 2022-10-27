@@ -15,9 +15,7 @@ namespace onboardtask.Pages
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://localhost:5000/");
 
-            //signin
-
-            //try
+           
             {
                 IWebElement SignIn = driver.FindElement(By.XPath("//*[@id=\'home\']/div/div/div[1]/div/a"));
                 SignIn.Click();
@@ -33,10 +31,7 @@ namespace onboardtask.Pages
                 IWebElement Login = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
                 Login.Click();
             }
-            //catch (Exception ex)
-            //{
-            //    Assert.Fail("signin did not finish", ex.Message);
-            //}
+           
 
 
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.Emit;
 using NUnit.Framework;
 using onboardtask.Pages;
 using TechTalk.SpecFlow;
@@ -24,14 +25,14 @@ namespace onboardtask.StepDefinitions
             Assert.That(newSkill == "SING", "actual skill and expected skill do not match");
         }
         [When(@"I edit'([^']*)','([^']*)',in the existing skill record")]
-        public void WhenIEditInTheExistingSkillRecord(string PAINT, string Expert)
+        public void WhenIEditInTheExistingSkillRecord(string Skill, string Skilllevel)
         {
             SkillsPage skillPageObj = new SkillsPage();
             skillPageObj.EditSkill();
             skillPageObj.EditSkillLevel();
         }
         [Then(@"The record should have the edited '([^']*)' ,'([^']*)' \.")]
-        public void ThenTheRecordShouldHaveTheEdited_(string PAINT, string Expert)
+        public void ThenTheRecordShouldHaveTheEdited_(string Skill, string Skilllevel)
         {
             SkillsPage skillPageObj = new SkillsPage();
             string NewEditedSkill = skillPageObj.GetEditedskill();
