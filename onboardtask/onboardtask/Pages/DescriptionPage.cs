@@ -13,19 +13,22 @@ namespace onboardtask.Pages
     {
         public void AddDescription()
         {
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//i[@class='outline write icon']", 9);
-            IWebElement WriteDescription = driver.FindElement(By.XPath("//i[@class='outline write icon']"));
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i", 9);
+            IWebElement WriteDescription = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i"));
             WriteDescription.Click();
-            IWebElement Description = driver.FindElement(By.XPath("//div/section[2]//div[3]/div/div/form//div[2]/div[1]/textarea"));
+           // WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i", 9);
+
+           // WaitHelpers.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea", 13);
+            IWebElement Description = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea"));
             Description.Click();
             Description.Clear();
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]//div[3]/div/div/form//div[2]/div[1]/textarea", 9);
+            
             Description.SendKeys("HELLO");
 
             IWebElement SaveButton = driver.FindElement(By.XPath("//button[@type='button']"));
             SaveButton.Click();
 
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//button[@type='button']", 9);
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//span[@style='padding-top: 1em;']", 9);
             IWebElement newDescription = driver.FindElement(By.XPath("//span[@style='padding-top: 1em;']"));
             Assert.That(newDescription.Text != "HELLO", "actual description and expected description do not  match");
 

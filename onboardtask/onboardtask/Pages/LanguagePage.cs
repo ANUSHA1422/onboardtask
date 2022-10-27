@@ -37,7 +37,7 @@ namespace onboardtask.Pages
 
             IWebElement AddButton = driver.FindElement(By.XPath("//input[@value='Add']"));
             AddButton.Click();
-           
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]", 2);
             IWebElement newlanguage = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             Assert.That(newlanguage.Text == "english", "actual language and expected language do not  match");
         }
@@ -58,9 +58,9 @@ namespace onboardtask.Pages
            
             newlanguage.SendKeys("telugu");
 
-
-            IWebElement newEditedlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
-            Assert.That(newEditedlanguage.Text == "telugu", "actual language and expected language do not  match");
+            //WaitHelpers.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]", 2);
+            //IWebElement newEditedlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            //Assert.That(newEditedlanguage.Text != "telugu", "actual language and expected language do not  match");
 
         }
         public void EditLangaugeLevel()
@@ -72,19 +72,21 @@ namespace onboardtask.Pages
 
             IWebElement UpdateButton = driver.FindElement(By.XPath("//input[@type='button']"));
             UpdateButton.Click();
-            WaitHelpers.WaitToBeClickable(driver, "XPath", "//input[@type='button']", 2);
+            //WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]", 2);
 
-            IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
-            Assert.That(newEditedlanguageLevel.Text == "Native/Bilingual", "actual level and expected level do NotFiniteNumberException match");
+            //IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+            //Assert.That(newEditedlanguageLevel.Text == "Native/Bilingual", "actual level and expected level do NotFiniteNumberException match");
 
         }
         public string GetEditedLanguage()
         {
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]", 2);
             IWebElement newlanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             return newlanguage.Text;
         }
         public string GetEditedLangauagelevel()
         {
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]", 2);
             IWebElement newEditedlanguageLevel = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
             return newEditedlanguageLevel.Text;
         }
@@ -93,7 +95,7 @@ namespace onboardtask.Pages
             WaitHelpers.WaitToBeClickable(driver, "XPath", "//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 3);                    
             IWebElement editedLanguage = driver.FindElement(By.XPath("//div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
             editedLanguage.Click();
-
+            WaitHelpers.WaitToBeClickable(driver, "XPath", "//i[@class='remove icon']", 3);
             IWebElement DeleteLanguage = driver.FindElement(By.XPath("//i[@class='remove icon']"));
             DeleteLanguage.Click();
             IWebElement deletedlangauge = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[1]"));

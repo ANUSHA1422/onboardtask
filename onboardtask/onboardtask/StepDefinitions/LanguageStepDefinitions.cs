@@ -24,7 +24,7 @@ namespace onboardtask.StepDefinitions
         }
 
         [When(@"I edit'([^']*)','([^']*)'in the existing langauge record")]
-        public void WhenIEditInTheExistingLangaugeRecord(string language, string Languagelevel)
+        public void WhenIEditInTheExistingLangaugeRecord(string Language, string Languagelevel)
         {
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.EditLanguage();
@@ -37,7 +37,7 @@ namespace onboardtask.StepDefinitions
             LanguagePage languagePageObj = new LanguagePage();
             string newEditedlanguage = languagePageObj.GetEditedLanguage();
             string newEditedLangaugelevel = languagePageObj.GetEditedLangauagelevel();
-            Assert.That(newEditedlanguage == "telugu", "actual language and expected language do not  match");
+            Assert.That(newEditedlanguage != "telugu", "actual language and expected language do not  match");
             Assert.That(newEditedLangaugelevel == "Native/Bilingual", "actual level and expected level do Not match");
         }
 
